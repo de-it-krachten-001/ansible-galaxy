@@ -68,7 +68,8 @@
           when: (not __galaxy_node_is_installed.stat.exists) or (('v' ~ galaxy_node_version) != __galaxy_installed_node_version.stdout)
 
         - name: Install or upgrade node
-          command: "nodeenv -p -n {{ galaxy_node_version }} --mirror {{ galaxy_npm_mirror }}"
+          command: >-
+            nodeenv -p -n {{ galaxy_node_version }} --mirror {{ galaxy_npm_mirror }} {{ galaxy_npm_extra_args | default('') }}
           environment:
             PATH: "{{ galaxy_venv_dir }}/bin:{{ ansible_env.PATH }}"
             VIRTUAL_ENV: "{{ galaxy_venv_dir }}"
