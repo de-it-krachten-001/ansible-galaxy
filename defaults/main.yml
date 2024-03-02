@@ -555,3 +555,7 @@ galaxy_themes_tool_ngs_sections:
   - "picard"
   - "mapping"
   - "sambam"
+
+# Pypi repositories
+galaxy_pypi_repo_default: https://pypi.python.org
+galaxy_pypi_repo_custom: https://wheels.galaxyproject.org
